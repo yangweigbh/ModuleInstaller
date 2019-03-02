@@ -42,23 +42,23 @@ public class MyApplication extends Application {
 in your Activity clas that will use dynamic module:
 
 ```java
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(newBase);
+@Override
+protected void attachBaseContext(Context newBase) {
+    super.attachBaseContext(newBase);
 
-        ModuleInstaller.initActivity(this);
-    }
+    ModuleInstaller.initActivity(this);
+}
 ```
 
 to install a dynamic module, usually when your app in foreground:
 
 ```java
 ModuleInstaller.install("test_module", new OnModuleInstallFinishedListener() {
-            @Override
-            public void onFinished(boolean success) {
-                Log.d(TAG, "onFinished() called with: success = [" + success + "]");
-            }
-        });
+        @Override
+        public void onFinished(boolean success) {
+            Log.d(TAG, "onFinished() called with: success = [" + success + "]");
+        }
+    });
 ```
 
 to install a module when your app in background 
